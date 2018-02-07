@@ -1,0 +1,97 @@
+<html lang="en" class="no-js" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>音响笔记登录</title>
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+<style>
+
+body{
+    background:url(/img/back.jpg);
+	color:#0000AC;
+
+}
+</style>
+</head>
+<body>
+<div style="height:20%"></div>
+<div class="container " id="user"> 
+    <div class="col-lg-3 col-md-3 col-xs-3"></div> 
+    <div class="col-lg-6 col-md-6 col-xs-6"> 
+         
+        <h1>用户登录</h1> 
+        
+        <div class="modal-footer" >
+                            	
+                <form role="form">
+                    <div class="form-group-lg" >
+                         <input type="text" class="form-control center-block" placeholder="账号"  style="max-width:300px;" v-model="user_v">
+                          <br>
+                          <input type="password" class="form-control center-block" placeholder="密码"  style="max-width:300px;" v-model="password_v">
+                    </div>
+                    <div class="text-center" v-if="has_error">
+                        <h4 style="color:rgb(221, 34, 21)">{{error_message}}</h4>
+                    </div>
+                    <div class="text-center">
+                            <a href="signup.html"><h4>还没有账号？</h4></a>
+                    </div>
+                    
+                </form>
+                    
+        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success center-block"  data-dismiss="modal"  style="width:80px" v-on:click="check"> 登录</button>
+                
+            </div>
+       
+    </div> 
+    <div class="col-lg-3 col-md-3 col-xs-3"></div> 
+</div> 
+</body>
+<script>
+    var v = new Vue({
+        el:"#user",
+        data:{
+            user_v:"",
+            password_v:"",
+            has_error:false,
+            error_message:""
+        },
+        methods:{
+            check:function(){
+
+                $.ajax(
+                    {
+                        url:"/check",
+                        type:'post', 
+                        data:{    
+                            userName:this.user_v,
+                            password:this.password_v
+                        }, 
+                        success:function(result){
+
+                            if(result=="error"){
+                                v.has_error=true;
+                                v.error_message="账号不存在或密码错误？";
+                            }else if(result=="hasLogin"){
+                                v.has_error=true;
+                                v.error_message="该账号已登录";
+                            }else if(result=="userPage"){
+                                location.href="/userPage";
+                            }else if(result=="managerPage"){
+                                location.href="/managerPage";
+                            }
+                        }
+                    }
+                );
+
+            }
+        }
+    });
+</script>
+</html>

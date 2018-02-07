@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="rmisql@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="rmisql">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="communityhome"/>
+    <schema id="4" parent="1" name="community_home"/>
+    <schema id="5" parent="1" name="com_pomelo"/>
+    <schema id="6" parent="1" name="examination_system"/>
+    <schema id="7" parent="1" name="giit"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="mycloud"/>
+    <schema id="10" parent="1" name="mysql"/>
+    <schema id="11" parent="1" name="pairsystem"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="platform"/>
+    <schema id="14" parent="1" name="socketftpsql"/>
+    <schema id="15" parent="1" name="socketsql"/>
+    <schema id="16" parent="1" name="sys"/>
+    <schema id="17" parent="1" name="test"/>
+    <table id="18" parent="2" name="meeting"/>
+    <table id="19" parent="2" name="user"/>
+    <column id="20" parent="18" name="id">
+      <Position>1</Position>
+      <Comment>动态的id</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="18" name="username">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="18" name="othername">
+      <Position>3</Position>
+      <Comment>另一位用户</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="18" name="title">
+      <Position>4</Position>
+      <Comment>标题</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="18" name="label">
+      <Position>5</Position>
+      <Comment>标签</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="18" name="starttime">
+      <Position>6</Position>
+      <Comment>开始时间</Comment>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="18" name="endtime">
+      <Position>7</Position>
+      <Comment>结束时间</Comment>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="27" parent="18" name="othername">
+      <ColNames>othername</ColNames>
+    </index>
+    <index id="28" parent="18" name="username">
+      <ColNames>username</ColNames>
+    </index>
+    <key id="29" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="19" name="id">
+      <Position>1</Position>
+      <Comment>动态的id</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="31" parent="19" name="username">
+      <Position>2</Position>
+      <Comment>用户名</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="19" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(16)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="33" parent="19" name="password">
+      <ColNames>password</ColNames>
+    </index>
+    <index id="34" parent="19" name="username">
+      <ColNames>username</ColNames>
+    </index>
+    <key id="35" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
